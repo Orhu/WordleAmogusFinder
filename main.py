@@ -1,4 +1,4 @@
-# Wordle Amogus Finding Tool by Malcolm McDonough
+# Wordle Amogus Finding Tool by Orhu
 
 def main():
     print("====== Wordle Amogus Finder Tool ======\n")
