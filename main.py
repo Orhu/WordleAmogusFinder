@@ -1,4 +1,4 @@
-# Wordle Amogus Finding Tool by Orhu
+# Wordle Amogus Finding Tool by Malcolm McDonough
 
 def main():
     print("====== Wordle Amogus Finder Tool ======\n")
@@ -144,7 +144,8 @@ def wordCheck(word, checkWord):
         if word[i] == checkWord[i]:
             hintString.append('G')
             checkWord[i] = ''
-        elif word[i] in checkWord:
+    for i in range(len(word)):
+        if word[i] in checkWord:
             for j in range(len(checkWord)):
                 if word[i] == checkWord[j]:
                     hintString.append('Y')
