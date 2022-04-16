@@ -83,8 +83,15 @@ def WordleAmogusFinder(wotd, mode=0, rarityMode=""):
             # noinspection PyTypeChecker
             patternDict[pattern]["words"].append(word)
 
+    # Mode Logic
+    targetNum = 0
+    if mode == 0:
+        targetNum = 1
+    elif mode == 1:
+        targetNum = 10
+
     # Amogus Finding Time (AFT for short)
-    amogusWordList = ["","","","","",wotd]
+    amogusWordList = ["", "", "", "", "", wotd]
     endPriority = -1
 
     for i in range(16):
@@ -126,6 +133,7 @@ def WordleAmogusFinder(wotd, mode=0, rarityMode=""):
     print("Word List:")
     for i in amogusWordList:
         print(i)
+
     return
 
 
@@ -140,17 +148,16 @@ def wordCheck(word, checkWord):
     word = list(word)
     checkWord = list(checkWord)
     # need to account for multi-letter
-    for i in range(len(word)):
-        if word[i] == checkWord[i]:
+    for i in range(len(checkWord)):
+        if checkWord[i] == word[i]:
             hintString.append('G')
-            checkWord[i] = ''
-    for i in range(len(word)):
-        if word[i] in checkWord:
-            for j in range(len(checkWord)):
-                if word[i] == checkWord[j]:
+            word[i] = ''
+        elif checkWord[i] in word:
+            for j in range(len(word)):
+                if checkWord[i] == word[j]:
                     hintString.append('Y')
-                    checkWord[j] = ''
-                    break
+                    word[j] = ''
+                    continue
         else:
             hintString.append('B')
     return ''.join(hintString)
