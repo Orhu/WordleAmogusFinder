@@ -136,8 +136,7 @@ def WordleAmogusFinder(wotd, mode=0, rarityMode=""):
 
     return
 
-
-def wordCheck(word, checkWord):
+def wordCheck(checkWord, word):
     """
     Generates hint response for word based on checkWord.
     :param word: Word to generate hints for.
